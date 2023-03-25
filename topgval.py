@@ -8,7 +8,7 @@ import random
 width = 750
 height = 300
 position = [75,height/2]
-radius = 21
+radius = 23
 position2 = [width-radius, 30]
 x_pos= width/2
 velx= 0
@@ -35,7 +35,7 @@ def scontro():
     
     dist = math.sqrt(pow(position[0]-position2[0],2)+pow(position[1]- position2[1],2))
     if (dist <= 2*radius):
-        print "BOOM"
+       
         timer.stop()
         velx2 = 0
         vely2 = 0
@@ -107,7 +107,7 @@ def draw(canvas):
         
         
     #background
-    canvas.draw_image(imageroad, (1935/2, 571/2), (1935,571),(x_pos,height/2),(width*2,height))
+    canvas.draw_image(imageroad, (1935/4, 571/2), (1935/2,571),(x_pos,height/2),(width*1.75,height))
     
     
     #primo piano 
@@ -160,9 +160,9 @@ def timer_handler():
     
     time = time +1
    
-    if time%1000 == 0:
-        velx2 = velx2-1
-       
+    if time%500 == 0:
+        velx2 = velx2-random.randint(-3,3)
+        print(velx2)
 frame = simplegui.create_frame("Key Handling", width, height)
 
 timer = simplegui.create_timer(10, timer_handler)
