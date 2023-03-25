@@ -1,0 +1,144 @@
+# Controlla la posizione della palla con i tasti freccia
+
+importare simplegui
+importare la matematica
+importa casuale
+
+# inizializza lo stato
+larghezza = 750
+altezza = 300
+posizione = [75,altezza/2]
+raggio = 25
+posizione2 = [larghezza-raggio, 30]
+posizione3 = [larghezza,altezza]
+
+velocità= 0
+vely= 0
+velx2 = -7
+vely2 = 1
+vel3x = -7
+tempo = 0
+messaggio = ""
+prova = 0
+image = simplegui.load_image('https://raw.githubusercontent.com/Edodo06/Phytontopg/main/policecarAF1.jpg')
+imageroad = simplegui.load_image('https://raw.githubusercontent.com/MrAleSoaveCotta/Gioco/main/strada%20fin1.jpg')
+imagetopg = simplegui.load_image('https://raw.githubusercontent.com/Edodo06/Phytontopg/main/pixil-frame-0%2520%25282%2529.png')
+
+# gestori di eventi
+def keydown(tasto):
+    velocità globale
+    velocità globale
+    if chiave == simplegui.KEY_MAP['a']:
+        print("ciao")
+    if chiave == simplegui.KEY_MAP['s']:
+        vely = vely + 5
+    if chiave == simplegui.KEY_MAP['w']:
+        vely = vely - 5
+def keyup(chiave):
+    velocità globale
+    velocità globale        
+  
+       
+    if chiave == simplegui.KEY_MAP['w']:
+        vely = 0
+    if chiave == simplegui.KEY_MAP['s']:
+        vely = 0
+        
+
+def() scontro:
+    posizione globale
+    posizione globale2
+    velocità globale
+    velocità globale
+    velocità globale2
+    velocità globale2
+    velocità globale3
+    dx = posizione[0]-posizione2[0]
+    dy = posizione[1]-posizione2[1]
+    dist = math.sqrt(dx*dx+dy*dy)
+    
+    if (dist <= 2*raggio):
+        #print "scontro"
+        velocità= 0
+        vely= 0
+        velx2=0
+        vely2=0
+        ritorno 1
+       
+
+def disegnare(canvas):
+    velocità globale
+    velocità globale
+    velocità globale2
+    velocità globale2
+    globale vel3x
+    messaggio globale
+    globale vel3x
+    if (scontro()==1):
+        canvas.draw_text("Game Over", [50,112], 48, "Rosso")
+        timer.stop()
+    
+    posizione[0]=posizione[0]+velx
+    posizione[1]=posizione[1]+velocità
+    posizione2[0]=posizione2[0]+velx2
+    posizione3[0]=posizione2[0]+vel3x
+    se posizione[0] > larghezza-raggio:
+        velx = -velx
+    se posizione[0] < raggio:
+        velx = -velx
+    se posizione[1] > altezza-raggio:
+        vely = -vely
+    se posizione[1] < raggio:
+        vely = -vely
+    se posizione2[0] > larghezza-raggio:
+        velx2 = -velx2
+    se posizione2[0] < raggio:
+        posizione2[0] = larghezza-raggio
+        posizione2[1] = random.randint(0+raggio,altezza-raggio)
+    #sfondo
+    canvas.draw_image(imageroad, (999/2, 599/2), (999, 599),(400, 150),(900, 300))
+    
+    
+    #primopiano
+    
+    canvas.draw_image(image, (999/2 , 694/2 ), (999, 694), position2, (raggio*3, raggio*3))
+    canvas.draw_image(imagetopg, (1000/2 , 1000/2 ), (1000,1000), posizione, (raggio*3, raggio*3))
+   
+    
+    
+    
+    #disposizione
+    canvas.draw_text(messaggio,(660,30),30,"Bianco")
+    
+    if (scontro()==1):
+        canvas.draw_text("Game Over", [50,112], 48, "Rosso")
+        timer.stop()
+def timer_handler():       
+    tempo globale
+    posizione globale2
+    velocità globale2
+    prova globale
+    messaggio globale
+    
+    prova = prova +1
+    
+    messaggio = str(prova)
+    
+    tempo = tempo +1
+   
+    se tempo%1000 == 0:
+        velx2 = velx2-1
+       
+frame = simplegui.create_frame("Gestione chiavi", larghezza, altezza)
+
+timer = simplegui.create_timer(10, timer_handler)
+timer.start()
+
+# registra gestori di eventi
+frame.set_keydown_handler(chiavegiù)
+frame.set_keyup_handler(keyup)
+frame.set_draw_handler(disegna)
+
+
+# fotogramma iniziale
+telaio.start()
