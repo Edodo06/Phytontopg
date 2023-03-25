@@ -95,10 +95,9 @@ def draw(canvas):
     
     
     #primo piano 
-    ######non va la foto 2 della macchina che viene addosso
+    
     canvas.draw_image(image, (999/2 , 694/2 ), (999, 694), position2, (radius*3, radius*3))
-    canvas.draw_circle(position, radius, 2, "red", "red")
-    #canvas.draw_image(imagetopg, radius, 2, "yellow", "yellow")
+    canvas.draw_image(imagetopg, (1000/2 , 1000/2 ), (1000,1000), position, (radius*3, radius*3))
    
     
     
