@@ -56,7 +56,7 @@ def scontro():
     dist12 = math.sqrt(pow(position[0]-position2[0],2)+pow(position[1]- position2[1],2))
     dist13 = math.sqrt(pow(position[0]-position3[0],2)+pow(position[1]- position3[1],2))
 
-    
+  
     if gianpietro==4:
         velx2 = -7
         vely2 = 1
@@ -138,7 +138,7 @@ def keydown(key):
     if ( scontro()): 
         if key == simplegui.KEY_MAP['r']:
             gianpietro=4
-
+         
         
 def keyup(key):
     global velx
@@ -180,6 +180,7 @@ def draw(canvas):
     global position2
     global position3
     
+    scontro()
     
     if gianpietro == 0 :
         imagestart = simplegui.load_image('https://raw.githubusercontent.com/Edodo06/Phytontopg/main/start5tt.jpg')
@@ -268,7 +269,7 @@ def draw(canvas):
  
              #layout
          canvas.draw_text(message,(660,25),30,"red")
-            
+             
  
         
     
